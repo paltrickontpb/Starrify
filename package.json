@@ -1,0 +1,11 @@
+{
+  "name": "starrify",
+  "version": "1.0.0",
+  "description": "Star all Asiatik Repos",
+  "main": "starrify.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "paltrickontpb",
+  "license": "ISC"
+}
