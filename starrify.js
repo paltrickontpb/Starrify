@@ -1,19 +1,42 @@
 var createToken = require( 'github-create-token' );
 var star = require( 'github-star-repo' );
-//Prompt Package
+var prompt = require('prompt');
 
 var gitUser;
 var gitPass;
 var gitToken;
+var success = 0;
 
-var opts = {
-    'username': gitUser,
-    'password': gitPass,
-    'scopes': [ 'public_repo', 'read:org' ],
-    'note': 'Stars Asiatik Repositories'
-};
+var schema = {
+    properties: {
+      username: {
+        pattern: /^[a-zA-Z\s\-]+$/,
+        message: 'Name must be only letters, spaces, or dashes',
+        required: true
+      },
+      password: {
+        hidden: true
+      }
+    }
+  };
 
-createToken( opts, tokenCallback );
+prompt.start();
+prompt.get(schema, function (err, result) {
+    
+    gitUser = result.username;
+    gitPass = result.password;
+
+    var opts = {
+        'username': gitUser,
+        'password': gitPass,
+        'scopes': [ 'public_repo', 'read:org' ],
+        'note': 'Stars Asiatik Repositories'
+    };
+
+    createToken( opts, tokenCallback );
+  });
+
+
 
 function tokenCallback( error, results, info ) {
     if ( error ) {
@@ -27,14 +50,27 @@ function tokenCallback( error, results, info ) {
 }
 
 function starRepos(){
-    var repoString;
-    star( repoString, {token : gitToken}, starCallback );
+    var repoString = [
+        'Asiatik/Notezy',
+        'Asiatik/codezilla',
+        'Asiatik/Join_Asiatik'
+    ];
+
+    console.log("Please wait for a few moments...")
+
+    for(i=0; i < repoString.length; i++){
+        star( repoString[i], {token : gitToken}, starCallback );
+    }
+
 }
 
 function starCallback( error, info ) {
     if ( error ) {
         throw new Error( error.message );
     }
-    console.log( 'Success!' );
+    success++;
+    if (success == 3) {
+        console.log("All Asiatik Repositories have been Starred. Thank you !");
+    }
 }
  
