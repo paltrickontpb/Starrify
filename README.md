@@ -24,7 +24,7 @@ If you recieve the following text given below, then follow the given steps:
 ```
 Token Already Exists. Please Go to your github settings and delete the token with the name 'Stars Asiatik Repositories'.
 ```
-1) Open https://github.com/settings/profile (Don't forget to login from your web browser into github)
+1) Open Git [Profile](https://github.com/settings/profile) (Don't forget to login from your web browser into github)
 2) Scroll Down and select 'Developer Settings' on the left hand menu list.
 3) Select 'Personal Access Tokens' on the left hand menu list.
 4) Delete the token named 'Stars Asiatik Repositories' and retry running the script.
@@ -32,5 +32,5 @@ Token Already Exists. Please Go to your github settings and delete the token wit
 For any other issues please file an issue on the 'Issues' Tab. Don't forget to add a screenshot and/or logs.
 
 ### Developer
-[paltrickontpb](https://github.com/paltrickontpb) - Projjal Gupta 
+[paltrickontpb](https://github.com/paltrickontpb) - Projjal Gupta  
 (Developed exclusively for Asiatik)
